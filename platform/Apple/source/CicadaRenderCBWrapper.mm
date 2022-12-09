@@ -32,6 +32,12 @@ bool CicadaRenderCBWrapper::OnRenderFrame(void *userData, IAFFrame *frame)
                 default:
                     break;
             }
+        } else if (frame->getType() == IAFFrame::FrameTypeAudio) {
+            if([delegate respondsToSelector:@selector(onAudioData:lineSize:pts:)]) {
+                return [delegate onAudioData:frame->getData()
+                                         lineSize:frame->getLineSize()
+                                         pts:frame->getInfo().pts];
+            }
         }
 
         return false;
