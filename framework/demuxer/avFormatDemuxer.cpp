@@ -97,7 +97,7 @@ namespace Cicada {
         }
 
         av_dict_set_int(&mInputOpts, "safe", 0, 0);
-        av_dict_set(&mInputOpts, "protocol_whitelist", "file,http,https,tcp,tls", 0);
+        av_dict_set(&mInputOpts, "protocol_whitelist", "file,http,https,tcp,tls,rtp,udp,rtmp", 0);
         av_dict_set_int(&mInputOpts, "usetoc", 1, 0);
         av_dict_set_int(&mInputOpts, "flv_strict_header", 1, 0);
         /*If a url with mp4 ext name, but is not a mp4 file, the mp4 demuxer will be matched
